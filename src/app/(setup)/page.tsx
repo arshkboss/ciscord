@@ -3,6 +3,7 @@ import { LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import prisma from "@/utils/prisma";
 import { redirect } from "next/navigation";
+import InitialModal from "@/components/modals/initial-modal";
 
 const SetupPage = async () => {
   const { getUser } = getKindeServerSession();
@@ -27,11 +28,16 @@ const SetupPage = async () => {
   }
 
   return (
-    <div>
-      Create a Server
-      <LoginLink>Login</LoginLink>
-      <LogoutLink>Logout</LogoutLink>
-    </div>
+    <>
+      <div>
+        Create a Server
+        <LoginLink>Login</LoginLink>
+        <LogoutLink>Logout</LogoutLink>
+      </div>
+      <div>
+        <InitialModal />
+      </div>
+    </>
   );
 };
 
