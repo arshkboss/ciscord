@@ -29,6 +29,7 @@ const ServerPage = async ({ params }: { params: Promise<{ id: string }> }) => {
           </p>
           <p>{`Server Name: ${getServerDetails?.name.toUpperCase()}`}</p>
           <p>{`Invite Code: ${getServerDetails?.inviteCode}`}</p>
+          <p>{`Members: ${getServerDetails?.id}`}</p>
         </div>
       }
     </div>

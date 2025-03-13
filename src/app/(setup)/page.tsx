@@ -4,7 +4,7 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import prisma from "@/utils/prisma";
 import { redirect } from "next/navigation";
 import InitialModal from "@/components/modals/initial-modal";
-import { UploadButton } from "@/utils/uploadthing";
+// import { UploadButton } from "@/utils/uploadthing";
 
 const SetupPage = async () => {
   const { getUser } = getKindeServerSession();
@@ -21,12 +21,12 @@ const SetupPage = async () => {
     },
   });
 
-  console.log(server);
-  if (server) {
-    return redirect(`servers/${server.id}`);
-  } else {
-    console.log(`no server found`, server);
-  }
+  // console.log(server);
+  // if (server) {
+  //   return redirect(`servers/${server.id}`);
+  // } else {
+  //   console.log(`no server found`, server);
+  // }
 
   return (
     <>
@@ -37,7 +37,6 @@ const SetupPage = async () => {
       </div>
       <div>
         <InitialModal />
-        
       </div>
     </>
   );
