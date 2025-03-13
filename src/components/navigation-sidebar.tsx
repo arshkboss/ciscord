@@ -4,7 +4,7 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { NavigationAction } from "./navigation-action";
 import { Separator } from "./ui/separator";
 import { ScrollArea } from "./ui/scroll-area";
-import Image from "next/image";
+
 import Link from "next/link";
 import { NavigationItems } from "./navigation-item";
 
@@ -37,7 +37,7 @@ const NavigationSidebar = async () => {
   return (
     <div
       className="flex flex-col min-h-[100vh] h-full w-full
-     bg-black/80 px-2 items-center py-3 space-y-4"
+     bg-black/80 px-2 items-center py-2 space-y-4"
     >
       <NavigationAction />
 
