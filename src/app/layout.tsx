@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import { ModalProvider } from "@/components/providers/modal-provider";
+import { Toaster } from "@/components/ui/sonner"
 
 const font = Open_Sans({ subsets: ["latin"] });
 
@@ -31,7 +32,8 @@ export default function RootLayout({
         <div className="flex ">
           <ModalProvider />
           {children}
-        </div>
+        </div>{" "}
+        <Toaster />
       </body>
     </html>
   );

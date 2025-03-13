@@ -8,7 +8,7 @@ export const initialProfile = async () => {
   const user = await getUser();
   console.log(user);
   if (!user) {
-    return redirect("/test");
+    return redirect("/api/auth/login/");
   }
 
   const profile = await prisma.profile.findUnique({

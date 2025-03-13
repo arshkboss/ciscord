@@ -14,7 +14,7 @@ export const NavigationAction = () => {
           onClick={() => onOpen("createServer")}
         >
           <div
-            className="flex m-3 h-[48px] w-[48px] rounded-[24px] 
+            className="flex m-3 h-[45px] w-[45px] rounded-[24px] 
           group-hover:rounded-[16px] transition-all overflow-hidden 
           items-center justify-center bg-background
            group-hover:bg-emerald-500"
