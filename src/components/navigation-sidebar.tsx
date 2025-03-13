@@ -15,7 +15,6 @@ import {
 } from "@/components/ui/tooltip";
 import { Button } from "./ui/button";
 
-import Link from "next/link";
 import { NavigationItems } from "./navigation-item";
 import { IoIosLogOut } from "react-icons/io";
 import { CiUser } from "react-icons/ci";
