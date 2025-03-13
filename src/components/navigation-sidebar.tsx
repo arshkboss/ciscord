@@ -52,7 +52,7 @@ const NavigationSidebar = async () => {
           />
         </div>
       ))}
-
+<div className="pb-3 mt-auto flex items-center flex-col gap-y-4"></div>
       {/* <div>
         {
           <TooltipProvider>
