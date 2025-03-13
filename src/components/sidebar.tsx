@@ -40,44 +40,67 @@ const Sidebar = async () => {
   console.log("Server Data:", serverData);
 
   return (
-    <div className="flex flex-col min-h-[100vh] w-[60px] bg-black/80 px-2 items-center justify-between py-4">
-      <Button className="size-10 " title="Create new server">
-        <IoIosAdd className="size-6" />
-      </Button>
-
-      <div>
-        {serverData.map((server) => (
-          <div key={server.id} className="py-1">
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link href={`/servers/${server.id}`}>
-                    <Image
-                      src={server.imageUrl}
-                      alt={server.name}
-                      height={50}
-                      width={50}
-                      unoptimized
-                      className="rounded-xl hover:shadow-2xl"
-                    />
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent side="right" sideOffset={15}>
-                  <p>{server.name}</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-          </div>
-        ))}
+    <div className="flex flex-col min-h-[100vh] w-[70px] bg-black/80 px-2 items-center justify-between py-4">
+      <div className="items-center flex flex-col space-y-2">
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Link href={"/"}>
+                <Button className="size-11 ">
+                  <IoIosAdd className="size-6" />
+                </Button>
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent side="right" sideOffset={15}>
+              <p>Create new Server</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <div>
+          {serverData.map((server) => (
+            <div key={server.id} className="py-1">
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Link href={`/servers/${server.id}`}>
+                      <Image
+                        src={server.imageUrl}
+                        alt={server.name}
+                        height={45}
+                        width={45}
+                        unoptimized
+                        className="rounded-xl hover:shadow-2xl"
+                      />
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent side="right" sideOffset={15}>
+                    <p>{server.name}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {
-        <Button asChild className="size-10" title="Logout">
-          <LogoutLink>
-            <IoIosLogOut className="size-6" />
-          </LogoutLink>
-        </Button>
-      }
+      <div>
+        {
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button asChild className="size-11">
+                  <LogoutLink>
+                    <IoIosLogOut className="size-6" />
+                  </LogoutLink>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="right" sideOffset={15}>
+                <p>Logout</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        }
+      </div>
     </div>
   );
 };
