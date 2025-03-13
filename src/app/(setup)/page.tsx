@@ -2,7 +2,6 @@ import { initialProfile } from "@/utils/initial-profile";
 import { LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import prisma from "@/utils/prisma";
-import { redirect } from "next/navigation";
 import InitialModal from "@/components/modals/initial-modal";
 // import { UploadButton } from "@/utils/uploadthing";
 
@@ -21,7 +20,7 @@ const SetupPage = async () => {
     },
   });
 
-  // console.log(server);
+  console.log(server);
   // if (server) {
   //   return redirect(`servers/${server.id}`);
   // } else {

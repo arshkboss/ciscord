@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/sidebar";
+import { ModalProvider } from "@/components/providers/modal-provider";
 
 const font = Open_Sans({ subsets: ["latin"] });
 
@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${font.className}  antialiased`}>
         <div className="flex ">
-          <Sidebar />
+          <ModalProvider />
           {children}
         </div>
       </body>
