@@ -31,7 +31,6 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
   const isAdmin = role === MemberRole.ADMIN;
   const isModerator = isAdmin || role === MemberRole.MODERATOR;
 
-  
   return (
     <div className="w-full">
       <DropdownMenu>
@@ -64,7 +63,10 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
             </DropdownMenuItem>
           )}
           {isAdmin && (
-            <DropdownMenuItem className=" py-2 text-sm flex justify-between  rounded-none m-0 ">
+            <DropdownMenuItem
+              className=" py-2 text-sm flex justify-between  rounded-none m-0 "
+              onClick={() => onOpen("members", { server })}
+            >
               Manage Members
               <User />
             </DropdownMenuItem>
