@@ -19,6 +19,7 @@ import { NavigationItems } from "./navigation-item";
 import { IoIosLogOut } from "react-icons/io";
 import { CiUser } from "react-icons/ci";
 import { redirect } from "next/navigation";
+import { ModeToggle } from "./ui/theme-toggle";
 
 const NavigationSidebar = async () => {
   //get kinde server
@@ -54,7 +55,7 @@ const NavigationSidebar = async () => {
       className="flex flex-col min-h-[100vh] h-full w-full bg-accent items-center py-2 space-y-2"
     >
       <NavigationAction />
-      <div className="px-2 h-[2px]  rounded-md mx-auto w-10 ">
+      <div className=" h-[2px] bg-primary rounded-md mx-auto w-10 ">
         <Separator />
       </div>
 
@@ -72,8 +73,11 @@ const NavigationSidebar = async () => {
           </div>
         ))}
       </ScrollArea>
-      <div className="px-2 h-[2px]  rounded-md mx-auto w-10 ">
+      <div className="bg-primary h-[2px]  rounded-md mx-auto w-10 ">
         <Separator />
+      </div>
+      <div className="pt-2  rounded-md mx-auto w-10 ">
+        <ModeToggle/>
       </div>
       <div className="mt-auto flex items-center flex-col rounded-full ">
         <TooltipProvider>
@@ -83,7 +87,7 @@ const NavigationSidebar = async () => {
                 asChild
                 className="flex m-3 h-[48px] w-[48px] rounded-[24px] 
                 hover:rounded-[16px] transition-all overflow-hidden 
-                items-center justify-center 
+                items-center justify-center bg-primary/80
               hover:bg-emerald-500 "
               >
                 <LogoutLink>
@@ -100,7 +104,7 @@ const NavigationSidebar = async () => {
             <TooltipTrigger asChild>
               <Button
                 asChild
-                className="flex  h-[48px] w-[48px] rounded-[24px] 
+                className="flex  h-[48px] w-[48px] rounded-[24px] bg-primary/80
               hover:rounded-[16px] transition-all overflow-hidden 
               items-center justify-center 
             hover:bg-emerald-500 "
@@ -109,7 +113,7 @@ const NavigationSidebar = async () => {
                   <CiUser className="size-6" />
                 </LogoutLink>
               </Button>
-            </TooltipTrigger>
+              </TooltipTrigger>
             <TooltipContent side="right" sideOffset={15}>
               <p>Profile</p>
             </TooltipContent>
