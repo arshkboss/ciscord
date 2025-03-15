@@ -18,12 +18,16 @@ import { Button } from "./ui/button";
 import { NavigationItems } from "./navigation-item";
 import { IoIosLogOut } from "react-icons/io";
 import { CiUser } from "react-icons/ci";
+import { redirect } from "next/navigation";
 
 const NavigationSidebar = async () => {
   //get kinde server
   const { getUser } = getKindeServerSession();
   const user = await getUser();
   // First get the profile
+  if(!user){
+    return redirect("/");
+  }
   const profile = await prisma.profile.findUnique({
     where: {
       userId: user.id,
@@ -47,11 +51,10 @@ const NavigationSidebar = async () => {
 
   return (
     <div
-      className="flex flex-col min-h-[100vh] h-full w-full
-     bg-black/80  items-center py-2 space-y-2"
+      className="flex flex-col min-h-[100vh] h-full w-full bg-accent items-center py-2 space-y-2"
     >
       <NavigationAction />
-      <div className="px-2 h-[2px] bg-zinc-300 rounded-md mx-auto w-10 ">
+      <div className="px-2 h-[2px]  rounded-md mx-auto w-10 ">
         <Separator />
       </div>
 
@@ -69,7 +72,7 @@ const NavigationSidebar = async () => {
           </div>
         ))}
       </ScrollArea>
-      <div className="px-2 h-[2px] bg-zinc-300 rounded-md mx-auto w-10 ">
+      <div className="px-2 h-[2px]  rounded-md mx-auto w-10 ">
         <Separator />
       </div>
       <div className="mt-auto flex items-center flex-col rounded-full ">

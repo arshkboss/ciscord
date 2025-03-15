@@ -30,19 +30,19 @@ const ServerSidebar = async ({ serverId }: { serverId: string }) => {
     },
   });
 
-  const textChannels = server?.channels.filter(
-    (channel) => channel.type === ChannelType.TEXT
-  );
-  const videoChannels = server?.channels.filter(
-    (channel) => channel.type === ChannelType.VIDEO
-  );
-  const audioChannels = server?.channels.filter(
-    (channel) => channel.type === ChannelType.AUDIO
-  );
+  // const textChannels = server?.channels.filter(
+  //   (channel) => channel.type === ChannelType.TEXT
+  // );
+  // const videoChannels = server?.channels.filter(
+  //   (channel) => channel.type === ChannelType.VIDEO
+  // );
+  // const audioChannels = server?.channels.filter(
+  //   (channel) => channel.type === ChannelType.AUDIO
+  // );
 
-  const members = server?.members.filter(
-    (member) => member.profileId !== profile.id
-  );
+  // const members = server?.members.filter(
+  //   (member) => member.profileId !== profile.id
+  // );
 
   if (!server) {
     return redirect("/");
@@ -51,7 +51,7 @@ const ServerSidebar = async ({ serverId }: { serverId: string }) => {
     (member) => member.profileId === profile.id
   )?.role;
   return (
-    <div className="bg-primary/95 h-full flex flex-col text-accent w-full">
+    <div className="bg-accent/80 h-full flex flex-col text-accent w-full">
       <div>
         <ServerHeader server={server} role={role} />
       </div>

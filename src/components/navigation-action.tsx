@@ -16,11 +16,11 @@ export const NavigationAction = () => {
           <div
             className="flex m-3 h-[45px] w-[45px] rounded-[24px] 
           group-hover:rounded-[16px] transition-all overflow-hidden 
-          items-center justify-center bg-background
+          items-center justify-center bg-primary
            group-hover:bg-emerald-500"
           >
             <IoIosAdd
-              className="group-hover:text-white transition  "
+              className="text-background  "
               size={25}
             />
           </div>
