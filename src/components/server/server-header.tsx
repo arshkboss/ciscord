@@ -23,13 +23,19 @@ interface ServerHeaderProps {
   server: ServerWithMembersWithProfile;
   role?: MemberRole;
 }
+import axios from "axios";
 
 //Main functin
 const ServerHeader = ({ server, role }: ServerHeaderProps) => {
+  
   const { onOpen } = useModal();
   const isAdmin = role === MemberRole.ADMIN;
   const isModerator = isAdmin || role === MemberRole.MODERATOR;
-
+  const deleteServer = async () => {
+    await axios.put(`/api/servers/${server.id}`);
+   
+    return console.log("deleted server");
+  };
   return (
     <div className="w-full">
       <DropdownMenu>
@@ -53,7 +59,10 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
             </DropdownMenuItem>
           )}
           {isAdmin && (
-            <DropdownMenuItem className=" py-2 text-sm flex justify-between  rounded-none m-0 ">
+            <DropdownMenuItem
+              className=" py-2 text-sm flex justify-between  rounded-none m-0 "
+              onClick={() => onOpen("editServer", { server })}
+            >
               Server Settings
               <Settings />
             </DropdownMenuItem>
@@ -64,6 +73,7 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
               <User />
             </DropdownMenuItem>
           )}
+
           {isModerator && (
             <DropdownMenuItem className=" py-2 text-sm flex justify-between  rounded-none m-0 ">
               Create Channels
@@ -72,7 +82,10 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
           )}
           {isModerator && <DropdownMenuSeparator />}
           {isAdmin && (
-            <DropdownMenuItem className=" py-2 text-sm flex justify-between  rounded-none m-0 text-red-600 hover:text-red-500 hover:bg-red-100 transition ">
+            <DropdownMenuItem
+              className=" py-2 text-sm flex justify-between  rounded-none m-0 text-red-600 hover:text-red-500 hover:bg-red-100 transition "
+              onClick={() => deleteServer()}
+            >
               Delete Server
               <Trash className="text-red-500" />
             </DropdownMenuItem>

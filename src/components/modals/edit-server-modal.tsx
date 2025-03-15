@@ -28,27 +28,33 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FileUpload } from "../file-upload";
 import { useRouter } from "next/navigation";
 import { useModal } from "@/hooks/use-modal-store";
+import { useEffect } from "react";
 const formSchema = z.object({
   name: z.string().min(1, { message: "Server name is must!" }),
   imageUrl: z.string().min(1, { message: "Server image is requried!" }),
 });
 
 const EditServerModal = () => {
-  const { isOpen, onClose, type } = useModal();
+  const { isOpen, onClose, type, data } = useModal();
 
   const isModalOpen = isOpen && type === "editServer";
-
+  const { server } = data;
   const router = useRouter();
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: { name: "", imageUrl: "" },
   });
-
+  useEffect(() => {
+    if (server) {
+      form.setValue("name", server.name);
+      form.setValue("imageUrl", server.imageUrl);
+    }
+  }, [server, form]);
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await axios.post("/api/servers", values);
+      await axios.patch(`/api/servers/${server?.id}`, values);
       form.reset();
       router.refresh();
       toast("Server edited successfully");
