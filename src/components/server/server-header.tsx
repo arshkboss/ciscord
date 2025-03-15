@@ -19,23 +19,19 @@ import {
   UserPlus,
 } from "lucide-react";
 import { useModal } from "@/hooks/use-modal-store";
+
 interface ServerHeaderProps {
   server: ServerWithMembersWithProfile;
   role?: MemberRole;
 }
-import axios from "axios";
 
 //Main functin
 const ServerHeader = ({ server, role }: ServerHeaderProps) => {
-  
   const { onOpen } = useModal();
   const isAdmin = role === MemberRole.ADMIN;
   const isModerator = isAdmin || role === MemberRole.MODERATOR;
-  const deleteServer = async () => {
-    await axios.put(`/api/servers/${server.id}`);
-   
-    return console.log("deleted server");
-  };
+
+  
   return (
     <div className="w-full">
       <DropdownMenu>
@@ -84,7 +80,7 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
           {isAdmin && (
             <DropdownMenuItem
               className=" py-2 text-sm flex justify-between  rounded-none m-0 text-red-600 hover:text-red-500 hover:bg-red-100 transition "
-              onClick={() => deleteServer()}
+              onClick={() => onOpen("deleteServer", { server })}
             >
               Delete Server
               <Trash className="text-red-500" />

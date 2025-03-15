@@ -24,6 +24,7 @@ export async function PATCH(
       console.log("No server with that ID found.");
       return new NextResponse("Internal server Error", { status: 404 });
     }
+    //eslint-disable-next-line
     const editServer = await prisma.server.update({
       where: {
         id: server?.id,
