@@ -20,6 +20,7 @@ import { IoIosLogOut } from "react-icons/io";
 import { CiUser } from "react-icons/ci";
 import { redirect } from "next/navigation";
 import { ModeToggle } from "./ui/theme-toggle";
+import Link from "next/link";
 
 const NavigationSidebar = async () => {
   //get kinde server
@@ -107,9 +108,9 @@ const NavigationSidebar = async () => {
               items-center justify-center 
             hover:bg-emerald-500 "
               >
-                <LogoutLink>
+                <Link href={`/profile/${profile?.id}`}>
                   <CiUser className="size-6" />
-                </LogoutLink>
+                </Link>
               </Button>
             </TooltipTrigger>
             <TooltipContent side="right" sideOffset={15}>

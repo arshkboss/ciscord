@@ -40,7 +40,7 @@ export const NavigationItems = ({
               alt={name}
               fill
               className="object-cover"
-              unoptimized
+              quality={50}
             />
           </div>
         </div>
