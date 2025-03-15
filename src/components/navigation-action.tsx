@@ -19,10 +19,7 @@ export const NavigationAction = () => {
           items-center justify-center bg-primary/80
            group-hover:bg-emerald-500"
           >
-            <IoIosAdd
-              className="text-background  "
-              size={25}
-            />
+            <IoIosAdd className="text-background  " size={25} />
           </div>
         </button>
       </ActionTooltip>

@@ -27,4 +27,5 @@ export const initialProfile = async () => {
       email: user.email || "",
     },
   });
+  console.log("created", newProfile);
 };

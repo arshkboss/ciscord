@@ -26,7 +26,7 @@ const NavigationSidebar = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
   // First get the profile
-  if(!user){
+  if (!user) {
     return redirect("/");
   }
   const profile = await prisma.profile.findUnique({
@@ -51,9 +51,7 @@ const NavigationSidebar = async () => {
   console.log("Server Data:", serverData);
 
   return (
-    <div
-      className="flex flex-col min-h-[100vh] h-full w-full bg-accent items-center py-2 space-y-2"
-    >
+    <div className="flex flex-col min-h-[100vh] h-full w-full bg-accent items-center py-2 space-y-2">
       <NavigationAction />
       <div className=" h-[2px] bg-primary rounded-md mx-auto w-10 ">
         <Separator />
@@ -77,7 +75,7 @@ const NavigationSidebar = async () => {
         <Separator />
       </div>
       <div className="pt-2  rounded-md mx-auto w-10 ">
-        <ModeToggle/>
+        <ModeToggle />
       </div>
       <div className="mt-auto flex items-center flex-col rounded-full ">
         <TooltipProvider>
@@ -113,7 +111,7 @@ const NavigationSidebar = async () => {
                   <CiUser className="size-6" />
                 </LogoutLink>
               </Button>
-              </TooltipTrigger>
+            </TooltipTrigger>
             <TooltipContent side="right" sideOffset={15}>
               <p>Profile</p>
             </TooltipContent>

@@ -14,7 +14,7 @@ export const ModalProvider = () => {
   return (
     <>
       <CreateServerModal />
-      <InviteModal/>
+      <InviteModal />
     </>
   );
 };
