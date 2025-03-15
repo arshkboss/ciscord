@@ -26,6 +26,7 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useModal } from "@/hooks/use-modal-store";
+import { Trash } from "lucide-react";
 
 // Define the form schema
 const formSchema = z.object({
@@ -105,7 +106,7 @@ const DeleteServerModal = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="uppercase text-xs font-bold text-zinc-500">
-                    { ` Type 'CONFIRM' to delete`}
+                      {` Type 'CONFIRM' to delete`}
                     </FormLabel>
                     <FormControl>
                       <Input
@@ -129,8 +130,14 @@ const DeleteServerModal = () => {
                 >
                   Cancel
                 </Button>
-                <Button disabled={isLoading} variant="primary" type="submit">
-                  Confirm Delete
+                <Button
+                  disabled={isLoading}
+                  variant="primary"
+                  className="bg-red-600 hover:bg-red-700"
+                  type="submit"
+                >Confirm Delete
+                  <Trash />
+                  
                 </Button>
               </div>
             </DialogFooter>
