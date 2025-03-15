@@ -1,7 +1,6 @@
 import currentProfile from "@/utils/currentprofile";
 import { redirect } from "next/navigation";
 import prisma from "@/utils/prisma";
-import { ChannelType } from "@prisma/client";
 import ServerHeader from "./server-header";
 const ServerSidebar = async ({ serverId }: { serverId: string }) => {
   const profile = await currentProfile();
@@ -51,7 +50,7 @@ const ServerSidebar = async ({ serverId }: { serverId: string }) => {
     (member) => member.profileId === profile.id
   )?.role;
   return (
-    <div className="bg-accent/80 h-full flex flex-col text-accent w-full">
+    <div className="bg-accent/50 h-full flex flex-col text-accent w-full">
       <div>
         <ServerHeader server={server} role={role} />
       </div>
