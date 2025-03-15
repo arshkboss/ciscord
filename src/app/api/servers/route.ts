@@ -16,6 +16,7 @@ export async function POST(req: Request) {
         profileId: profile.id,
         name,
         imageUrl,
+        //invite code generated when a new server is created
         inviteCode: uuidv4(),
         channels: {
           create: [
